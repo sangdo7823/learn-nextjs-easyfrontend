@@ -40,6 +40,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 Học nextjs từ trang easy frontend
 
 # 1 GIT
+
+```bash
 git init
 git add README.md
 git commit -m "first commit"
@@ -50,3 +52,4 @@ git push -u origin main
 git remote add origin https://github.com/sangdo7823/learn-nextjs-easyfrontend.git
 git branch -M main
 git push -u origin main
+```
