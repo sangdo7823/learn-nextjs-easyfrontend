@@ -32,15 +32,13 @@ export default function PostParamsWithCacheStale({ query, post }: PostParamsWith
 	)
 }
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-	context.res.setHeader('Cache-Control', 'max-age=5, stale-while-revalidate')
+	context.res.setHeader('Cache-Control', 'public, s-maxage=5, stale-while-revalidate')
 	// fake slow query
 	await new Promise((resolve) => setTimeout(resolve, 3000))
 
 	const postId = context.query.postId
 	if (!postId) return { props: { query: context.query } }
-	const response = await fetch(
-		`https://js-post-api.herokuapp.com/api/posts/${context.params?.postId}`
-	)
+	const response = await fetch(`https://js-post-api.herokuapp.com/api/posts/${postId}`)
 	const data = await response.json()
 
 	return {
