@@ -32,7 +32,7 @@ export default function PostParamsWithCache({ query, post }: PostParamsWithCache
 	)
 }
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-	context.res.setHeader('Cache-Control', 's-maxage=5')
+	context.res.setHeader('Cache-Control', 'max-age=5')
 	// fake slow query
 	await new Promise((resolve) => setTimeout(resolve, 3000))
 

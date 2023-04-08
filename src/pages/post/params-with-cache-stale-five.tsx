@@ -34,7 +34,7 @@ export default function PostParamsWithCacheStaleFive({
 	)
 }
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-	context.res.setHeader('Cache-Control', 's-maxage=5, stale-while-revalidate=5')
+	context.res.setHeader('Cache-Control', 'max-age=5, stale-while-revalidate=5')
 	// fake slow query
 	await new Promise((resolve) => setTimeout(resolve, 3000))
 
